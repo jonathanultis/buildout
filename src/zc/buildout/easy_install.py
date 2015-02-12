@@ -537,6 +537,8 @@ class Installer:
             path = setuptools_loc
 
             args = ('-c', self._easy_install_cmd, '-mUNxd', _safe_arg(tmp))
+            if self._index_url:
+                args = args + ('-i', self._index_url)
             if not self._has_broken_dash_S:
                 args = ('-S',) + args
             if self._always_unzip:
